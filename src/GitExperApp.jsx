@@ -17,9 +17,9 @@ export const GitExperApp = () => {
     <>
       <h1>GitExpertApp</h1>
 
-    <AddCategory/>  
-
-    <button onClick={ onAddCategorie }>Agregar</button>
+    <AddCategory  setCategories = { setCategories } />  
+    
+    <button onClick={ onAddCategorie }>Agregar</button> 
 
       <ol>
         {
