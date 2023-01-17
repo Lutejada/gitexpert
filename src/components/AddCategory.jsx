@@ -1,24 +1,32 @@
 import { useState } from "react"
 
 
-export const AddCategory = () => {
+export const AddCategory = ( {setCategories}) => {
 
-    const [inputValue, setInputValue] = useState('One punch');
+    const [inputValue, setInputValue] = useState('');
 
     const onInputChange = (event) => {
-        console.log(event.target.value)
+        //console.log(event.target.value)
         setInputValue( event.target.value)
+
+        
   
     }
 
     const onSubmit = (event)=>{
-        console.log( inputValue)
-        event.preventDefault()
+        //console.log( inputValue)
+      event.preventDefault()
+      if( inputValue.trim().length <= 1 ) return;
+
+      setCategories( categories => [ inputValue, ...categories]);
+
+      setInputValue('');
+
     }
 
 
   return (
-    <form onSubmit={(event)=>{onSubmit(event)}}>
+    <form onSubmit={(event)=>{onSubmit(event)}}> 
         <input
         type= 'text'
         placeholder="buscar Gif"
