@@ -3,12 +3,16 @@ import { AddCategory } from './components/AddCategory';
 
 export const GitExperApp = () => {
 
-    const [categories, setCategories] = useState([ 'One Punch', 'Dragon ball'] );
+    const [categories, setCategories] = useState(['one puch'] );
 
     const onAddCategorie = () => {
-      console.log ( 'valoriant')
+      //console.log ( newCategory)
       //setCategories ([...categories, 'valoriant']);  // La categoria queda de ultima
-      setCategories ( ['valoriant', ...categories]);  // La categoria queda de Primera
+
+      if ( categories.includes(newCategory)) {
+        return
+      }
+      setCategories ( [newCategory, ...categories]);  // La categoria queda de Primera
     }
 
     console.log( categories )
@@ -17,9 +21,13 @@ export const GitExperApp = () => {
     <>
       <h1>GitExpertApp</h1>
 
-    <AddCategory  setCategories = { setCategories } />  
+    <AddCategory  
+      //setCategories = { setCategories }
+
+      onNewCategory={ (event) => onAddCategorie(event)}
+     />  
     
-    <button onClick={ onAddCategorie }>Agregar</button> 
+    
 
       <ol>
         {
