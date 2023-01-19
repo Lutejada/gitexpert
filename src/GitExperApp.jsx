@@ -5,7 +5,7 @@ import { GifGrid } from "./components/GifGrid";
 export const GitExperApp = () => {
   const [categories, setCategories] = useState(["one puch"]);
 
-  const onAddCategorie = () => {
+  const onAddCategorie = ( newCategory) => {
     //console.log ( newCategory)
     //setCategories ([...categories, 'valoriant']);  // La categoria queda de ultima
 
