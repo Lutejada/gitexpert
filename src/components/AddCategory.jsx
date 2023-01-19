@@ -1,42 +1,37 @@
-import { useState } from "react"
+import { useState } from "react";
 
+export const AddCategory = ({ onNewCategory }) => {
+  const [inputValue, setInputValue] = useState("");
 
-export const AddCategory = ( {onNewCategory }) => {
+  const onInputChange = (event) => {
+    //console.log(event.target.value)
+    setInputValue(event.target.value);
+  };
 
-    const [inputValue, setInputValue] = useState('');
+  const onSubmit = (event) => {
+    //console.log( inputValue)
+    event.preventDefault();
+    if (inputValue.trim().length <= 1) return;
 
-    const onInputChange = (event) => {
-        //console.log(event.target.value)
-        setInputValue( event.target.value)
+    //setCategories( categories => [ inputValue, ...categories]);
 
-        
-  
-    }
+    onNewCategory(inputValue.trim());
 
-    const onSubmit = (event)=>{
-        //console.log( inputValue)
-      event.preventDefault()
-      if( inputValue.trim().length <= 1 ) return;
-
-      //setCategories( categories => [ inputValue, ...categories]);
-
-      onNewCategory( inputValue.trim())
-
-      setInputValue('');
-
-    }
-
+    setInputValue("");
+  };
 
   return (
-    <form onSubmit={(event)=>{onSubmit(event)}}> 
-        <input
-        type= 'text'
+    <form
+      onSubmit={(event) => {
+        onSubmit(event);
+      }}
+    >
+      <input
+        type="text"
         placeholder="buscar Gif"
-        value={ inputValue }
-        onChange = { ( event ) => onInputChange(event)}
-        />
-
+        value={inputValue}
+        onChange={(event) => onInputChange(event)}
+      />
     </form>
-    
-  )
+  );
 };
