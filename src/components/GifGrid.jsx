@@ -1,13 +1,12 @@
+import { getGif } from "../helpers/getGifs";
 
+export const GifGrid = ({ category }) => {
+  getGif(category);
 
-export const GifGrid = ( {category}) => {
-
-    
   return (
     <>
-    <h3> { category } </h3>
-    <p>Hola Mundo</p>
-
+      <h3> {category} </h3>
+      
     </>
-  )
-}
+  );
+};
