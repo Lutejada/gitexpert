@@ -1,11 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { GitExperApp } from "./GitExperApp";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { GifExpertApp } from './GifExpertApp';
 
-import "./styles.css";
+import './styles.css';
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <GitExperApp />
+    <GifExpertApp />
   </React.StrictMode>
 );
